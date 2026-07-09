@@ -1,0 +1,17 @@
+pipeline {
+   agent any 
+    stages {
+      stage ('pull-job') {
+       steps {
+          git branch: 'main', url: 'https://github.com/naveenpawar2004/cdec-38b.git'
+       }
+      }
+    }
+ stages {
+      stage ('build-job') {
+       steps {
+         echo "build my job"
+       }
+      }
+    }
+}
