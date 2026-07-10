@@ -3,14 +3,12 @@ pipeline {
     stages {
       stage ('pull-stage') {
        steps {
-          git branch: 'main', url: 'https://github.com/naveenpawar2004/cdec-38b.git'
+          echo "pull new job"
        }
       }
       stage ('build-stage') {
        steps {
-          dir('backend') {
-                    sh 'mvn clean package -DskipTests'
-                }
+            echo "build new job"
        }
       }
     }
