@@ -12,5 +12,14 @@ pipeline {
                mvn clean package -DskipTests'''
        }
       }
+      stage('test-stage') {
+       steps {
+          dir('backend') {
+            withSonarQubeEnv('cred-sonar') {
+                sh 'mvn sonar:sonar'
+            }
+        }
+    }
+}
     }
 }
