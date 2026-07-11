@@ -25,5 +25,10 @@ pipeline {
           waitForQualityGate abortPipeline: false, credentialsId: 'cred-sonar'  
        }
          }
+         stage ('deploy-stage') {
+       steps {
+           echo "deploy thiis website in server"
+       }
+      }
     }
 }
