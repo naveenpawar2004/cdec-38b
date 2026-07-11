@@ -14,11 +14,10 @@ pipeline {
       }
       stage('test-stage') {
        steps {
-          dir('backend') {
-            withSonarQubeEnv('server') {
-                sh 'mvn sonar:sonar'
-            }
-        }
+          withSonarQubeEnv(installationName: 'sonarqube', credentialsId: 'cred-sonar') {
+           sh '''cd backend
+               mvn sonar:sonar -Dsonar.projectKey=studentdb'''
+         }
     }
 }
     }
