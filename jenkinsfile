@@ -20,5 +20,10 @@ pipeline {
          }
     }
 }
+      stage('quality-stage') {
+       steps {
+          waitForQualityGate abortPipeline: false, credentialsId: 'cred-sonar'  
+       }
+         }
     }
 }
