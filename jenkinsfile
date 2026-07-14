@@ -27,7 +27,7 @@ pipeline {
          }
          stage ('depliver-stage') {
        steps {
-           sh 'aws s3 cp backend/target/student.jar s3://jenkins-to-s3-17/student.app
+           sh 'aws s3 cp backend/target/student.jar s3://jenkins-to-s3-17/student.app'
        }
       }
     }
