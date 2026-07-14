@@ -25,10 +25,11 @@ pipeline {
           waitForQualityGate abortPipeline: true, credentialsId: 'cred-sonar'  
        }
          }
-         stage ('deploy-stage') {
+         stage ('depliver-stage') {
        steps {
-           echo "deploy thiis website in server"
+           sh 'aws s3 cp backend/target/student.jar s3://jenkins-to-s3-17/student.app
        }
       }
     }
 }
+ 
